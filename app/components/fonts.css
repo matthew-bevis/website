@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'HelveticaNeueBlackItalic';
+    src: url('HelveticaNeue-BlackItalic.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('HelveticaNeue-regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
