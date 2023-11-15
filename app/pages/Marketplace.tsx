@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
-import '../components';
-import Layout from '../layout';
+import '../_components';
+import Layout from './layout';
 
 const Marketplace: React.FC = () => {
     return (
