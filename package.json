@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
-    "@mui/material": "^5.14.17",
+    "@mui/material": "^5.15.3",
     "next": "14.0.1",
-    "react": "^18",
+    "next-fonts": "^1.5.1",
+    "react": "^18.2.0",
     "react-dom": "^18",
+    "react-material-ui-carousel": "^3.4.2",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.21.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "vercel": "^32.3.0"
   },
   "devDependencies": {
@@ -24,6 +30,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
-    "typescript": "^5"
+    "file-loader": "^6.2.0",
+    "typescript": "^5",
+    "url-loader": "^4.1.1"
   }
 }
