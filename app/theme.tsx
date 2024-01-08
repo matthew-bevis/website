@@ -1,4 +1,6 @@
-import { createTheme } from '@mui/material/styles';
+'use client'
+
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -12,6 +14,15 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Helvetica-Neue'
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Helvetica Neue',
+        },
+      },
+    },
   },
 });
 

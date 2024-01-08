@@ -56,6 +56,7 @@ function Slideshow() {
         }}
       >
         <Carousel
+          //@ts-ignore
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeStep}
           onChangeIndex={handleStepChange}
@@ -84,16 +85,18 @@ function Slideshow() {
             </div>
           ))}
         </Carousel>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+        <Box sx={{ display: 'block', justifyContent: 'space-between'}}>
           <Arrow
+            //@ts-ignore
             direction="left"
             onClick={handleBack}
             sx={{ fontSize: '40px', color: 'white', cursor: 'pointer'}}
           />
           <Arrow
+            //@ts-ignore
             direction="right"
             onClick={handleNext}
-            sx={{ fontSize: '40px', color: 'white', cursor: 'pointer', marginLeft: '200px' }}
+            sx={{ fontSize: '40px', color: 'white', cursor: 'pointer'}}
           />
         </Box>
       </Box>

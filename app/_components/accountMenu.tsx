@@ -34,7 +34,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar src="https://cdn-icons-png.flaticon.com/128/10080/10080458.png" sx={{ width: 32, height: 32 }}/>
           </IconButton>
         </Tooltip>
       </Box>

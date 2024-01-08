@@ -13,9 +13,7 @@ export default function Layout({
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Header />
-                    {children}
-                <Footer />
+                {children}
             </ThemeProvider>
         </>
     )
