@@ -28,9 +28,9 @@ const Footer = () => {
           <Typography variant="body1" style={{ fontWeight: 'bold' }}>
             About
           </Typography>
-          <Typography variant="body2">Home</Typography>
           <Typography variant="body2">About Us</Typography>
           <Typography variant="body2">Contact Us</Typography>
+          <Typography variant="body2">FAQ</Typography>
         </Grid>
         <Grid item xs={12} md={2}>
           <Typography variant="body1" style={{ fontWeight: 'bold' }}>

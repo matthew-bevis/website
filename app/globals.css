@@ -1,5 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue';    
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url('public/HelveticaNeue-Regular.otf');
+    }   
 }

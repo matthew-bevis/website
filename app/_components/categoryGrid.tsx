@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Button, Container } from '@mui/material';
-import '../_components';
 
 const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5', 'Category 6'];
 
