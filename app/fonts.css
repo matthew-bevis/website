@@ -1,4 +1,4 @@
 @font-face {
-    font-family: 'CustomFont';
-    src: url('./fonts/HelveticaNeue-Regular.otf') format('truetype');
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Regular.otf') format('OpenType');
 }

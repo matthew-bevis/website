@@ -6,12 +6,13 @@ import CategoryGrid from 'app/_components/categoryGrid';
 import NewProducts from 'app/_components/newProducts';
 import FeaturedProducts from 'app/_components/featuredProducts';
 import Box from '@mui/material/Box';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme';
 
 const Marketplace: React.FC = () => {
     return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
     <Grid
       container
       direction="row"

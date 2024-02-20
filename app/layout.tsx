@@ -2,7 +2,7 @@
 
 import React from 'react';
 import theme from './theme';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import Header from './_components/header';
 import Footer from './_components/footer';
 
@@ -28,6 +28,7 @@ export default function RootLayout({
   }, []);
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <html lang="en">
         <body style={{margin: '0', padding: '0', maxWidth: '100%', maxHeight: '100%'}}>
           <Header />
