@@ -5,7 +5,7 @@ const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Cat
 
 const CategoryGrid = () => {
   return (
-    <Container maxWidth="lg" style={{display: 'block', justifyContent: 'center', paddingBottom: '20px'}}>
+    <Container maxWidth="lg" sx={{ pb:'20px'}} style={{display: 'block', justifyContent: 'center'}}>
       <Grid container spacing={2} justifyContent="center">
         {categories.map((category, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={2}>

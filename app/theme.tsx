@@ -1,6 +1,7 @@
 'use client'
 
 import { createTheme } from "@mui/material";
+import "./fonts.css";
 
 const theme = createTheme({
   palette: {
@@ -15,15 +16,11 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Helvetica-Neue'
   },
-  components: {
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          fontFamily: 'Helvetica Neue',
-        },
-      },
-    },
-  },
+  overrides: {
+    MuiCssBaseline: {
+      
+    }
+  }
 });
 
 export default theme;
