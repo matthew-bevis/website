@@ -1,5 +1,3 @@
-'use client'
-
 import { createTheme, Theme } from "@mui/material";
 
 const Helvetica = {
@@ -39,6 +37,20 @@ export const getTheme = (mode: ThemeMode): Theme => {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        body: {
+            margin: 0,
+            padding: 0,
+            maxWidth: '100%',
+            maxHeight: '100%',
+            overflowX: 'hidden',
+          },
+        head: {
+          margin: 0,
+          padding: 0,
+          maxWidth: '100%',
+          maxHeight: '100%',
+          overflowX: 'hidden',
+        },
         '@global': {
           '@font-face': [Helvetica],
         }

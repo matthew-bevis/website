@@ -1,4 +1,3 @@
-'use client'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -83,7 +82,7 @@ export default function AccountMenu() {
           <MenuBookIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText primary="My Bookings" /> {/* Ensures text alignment and styling */}
-</MenuItem>
+        </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>

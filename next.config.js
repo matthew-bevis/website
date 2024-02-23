@@ -1,41 +1,31 @@
-
-/**
- * @type {import('next').NextConfig}
- */
-
 const withFonts = require('next-fonts');
+
 module.exports = withFonts({
   webpack(config, options) {
-    return config;
-  }
-});
-
-const nextConfig = {
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
+    // Custom Webpack rules for other file types
+    if (!options.isServer) {
       config.module.rules.push({
         test: /\.(png|jpe?g|gif|mp4|webm|ogg|mp3|wav|flac|aac|woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'static/[hash][ext][query]',
         },
-        
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 8192, // You can adjust the limit as needed
-            name: 'fonts/[name].[ext]',
-            esModule: false, // This is important for url-loader to work with ES modules
-          },
-        },
       });
     }
 
+    // Return the updated configuration
     return config;
   },
-  images: {
-          domains: ['user.bulkitrade.com'],
-        },
-};
 
-module.exports = nextConfig;
+  // Next.js Image Optimization for external domains
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'user.bulkitrade.com',
+      }
+    ],
+  },
+
+  // Additional Next.js configuration options here
+});

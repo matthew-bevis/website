@@ -8,19 +8,15 @@ import RootLayout from './layout';
 
 const MyApp: React.FC = () => {
 
-  const [mode, setMode] = useState<'light' | 'dark'>('light'); // Ensuring strict type for mode
+  const [mode] = useState<'light' | 'dark'>('light'); // Ensuring strict type for mode
 
   // Directly assign theme based on the current mode
   const theme = getTheme(mode === 'light' || mode === 'dark' ? mode : 'light');
 
-  const toggleThemeMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  }
-
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <RootLayout>
-        <CssBaseline />
         <Marketplace />
       </RootLayout>
     </ThemeProvider>
