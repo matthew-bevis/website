@@ -28,7 +28,7 @@
     text-align: center;
     align-items: center;
     justify-content: center; 
-    font-family: 'Helvetica Neue'; 
+    font-family: 'Helvetica'; 
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0 
@@ -45,7 +45,7 @@
     border-top: 1px solid #ccc;
     max-width: 100%;
     justify-content: flex-end;
-    font-family: 'Helvetica Neue'; 
+    font-family: 'Helvetica'; 
 }
 .header {
     display: flex; 
@@ -55,6 +55,6 @@
     background-color: #FAFAFA;
     padding: 0;
     margin: 0;
-    font-family: 'Helvetica Neue'; 
+    font-family: 'Helvetica'; 
     width: 100% 
 }

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, Container, Grid, ThemeProvider} from '@mui/material';
-import theme from 'app/theme';
+import { Card, CardContent, Typography, Container, Grid } from '@mui/material';
 
 const cardsData = [
   { title: 'Card 1', content: 'Content for Card 1' },
@@ -23,7 +22,6 @@ const FeaturedProducts = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
     <Container maxWidth="lg" sx={{paddingBottom: '20px'}}>
       <Grid container spacing={2} justifyContent="center">
         {cardsData.map((card, index) => (
@@ -40,7 +38,6 @@ const FeaturedProducts = () => {
         ))}
       </Grid>
     </Container>
-    </ThemeProvider>
   );
 };
 

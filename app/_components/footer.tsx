@@ -1,11 +1,8 @@
 import React from 'react';
 import { Container, Grid, Typography, Divider } from '@mui/material';
-import { ThemeProvider } from '@mui/material';
-import theme from 'app/theme';
 
 const Footer = () => {
   return (
-    <ThemeProvider theme={theme}>
     <Container className="footer" sx={{ textAlign: 'center' }}>
       <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12} md={2} marginTop="10px">
@@ -51,7 +48,6 @@ const Footer = () => {
         © 2024 Bulkitrade, Inc. All Rights Reserved
       </Typography>
     </Container>
-    </ThemeProvider>
   );
 };
 
