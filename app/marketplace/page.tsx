@@ -1,89 +1,66 @@
+'use client'
+
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import Slideshow from '../_components/slideshow';
 import CategoryGrid from 'app/_components/categoryGrid';
 import NewProducts from 'app/_components/newProducts';
 import FeaturedProducts from 'app/_components/featuredProducts';
-import Box from '@mui/material/Box';
+import { Box, CssBaseline, ThemeProvider, useTheme } from '@mui/material';
+import { getTheme } from 'app/theme';
+import { useEffect, useState } from 'react';
+import RootLayout from 'app/layout';
 
 const Marketplace: React.FC = () => {
-    return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="space-between"
-      alignItems="stretch"
-      spacing={0}
-      sx={{ flexGrow: 1 }}
-    >
-      {/* Left column, visible only on extra-large screens */}
-      <Grid
-        item
-        xl={1}
-        pr={0}
-        sx={{
-          backgroundColor: '#034EA2',
-          display: { xl: 'flex', md: 'none', lg: 'none', xs: 'none' },
-        }}
-      />
-
-      {/* Center column, takes full width on all screens */}
-      <Grid
-        item
-        xs={12}
-        md={12}
-        lg={12}
-        xl={10}
-        sx={{
-          p: 0,
-          m: 0,
-          display: 'flex',
+  
+  const theme = useTheme();
+  return (
+    <ThemeProvider theme={theme}>
+      <RootLayout>
+        <CssBaseline />
+        <Box sx={{
           justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <div style={{ backgroundImage: 'url("https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png")', width: '100%', boxSizing: 'border-box' }}>
-          <Slideshow />
+          marginLeft: '0',
+          marginRight: '0', // Center the box
+          maxWidth: '100%', // Ensure it doesn't exceed the viewport width
+          width: '100%', // Full width
+        }}>
+        {/* Ensure that the container takes the full width and no unnecessary spacing is introduced */}
+        <Grid container sx={{ m: 0, p: 0, width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
+          {/* The backgroundImage style should be applied to a Box component that wraps all content */}
+          <Box sx={{
+            backgroundImage: 'url("https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png")',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box'
+          }}>
+            <Box sx={{ display: 'block', alignItems: 'center', justifyContent: 'center', bgcolor: theme.palette.background.paper, mt: 0, p: 0 }}>
+              <h1 className="segmentText">New Products</h1>
+              <NewProducts />
+            </Box>
 
-          <Box sx={{display: 'block', alignItems: 'center', justifyContent: 'center', bgcolor: 'white', mt: 0, p: 0}}>
-            <h1 className="segmentText">New Products</h1>
-            <NewProducts />
+            <div className="segmentG">
+              <h1 className="segmentText">Categories</h1>
+              <CategoryGrid />
+            </div>
+
+            <Box
+              component="img"
+              mb={-0.5}
+              pb={0}
+              sx={{ overflow: 'hidden', height: 'auto', width: '100%' }}
+              alt="JUS banner"
+              src="https://user.bulkitrade.com/assets/images/ads1.jpg"
+            />
+            
+            <div className="segmentW">
+              <h1 className="segmentText">Featured Products</h1>
+              <FeaturedProducts />
+            </div>
           </Box>
-
-          <div className="segmentG">
-            <h1 className="segmentText">Categories</h1>
-            <CategoryGrid />
-          </div>
-          <Box
-            component="img"
-            mb={-.5}
-            pb={0}
-            sx={{
-              overflow: 'hidden',
-              height: 'auto',
-              width: '100%',
-            }}
-            alt='JUS banner'
-            src="https://user.bulkitrade.com/assets/images/ads1.jpg"
-          />
-          <div className="segmentW">
-            <h1 className="segmentText">Featured Products</h1>
-            <FeaturedProducts />
-          </div>
-        </div>
-      </Grid>
-
-      {/* Right column, visible only on extra-large screens */}
-      <Grid
-        item
-        xl={1}
-        ml={0}
-        sx={{
-          backgroundColor: '#034EA2',
-          display: { xl: 'flex', md: 'none', lg: 'none', xs: 'none' },
-        }}
-      />
-    </Grid>
+        </Grid>
+        </Box>
+      </RootLayout>
+    </ThemeProvider>
   );
 };
 

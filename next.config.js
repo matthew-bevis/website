@@ -16,6 +16,15 @@ module.exports = withFonts({
     // Return the updated configuration
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/', // The path you want to redirect from
+        destination: '/marketplace', // The path you want to redirect to
+        permanent: true, // Set to `true` if the redirect is permanent (HTTP 301), `false` for temporary (HTTP 307)
+      },
+    ];
+  },
 
   // Next.js Image Optimization for external domains
   images: {

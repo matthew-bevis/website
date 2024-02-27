@@ -29,6 +29,7 @@ export const getTheme = (mode: ThemeMode): Theme => {
           // palette values for dark mode
           primary: { main: '#034EA2' },
           background: { default: '#7a7a7a', paper: '#a3a3a3' },
+          secondary: {main: '#F68B1F', dark: '#F26522'}
         }),
   },
   typography: {
@@ -37,20 +38,6 @@ export const getTheme = (mode: ThemeMode): Theme => {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        body: {
-            margin: 0,
-            padding: 0,
-            maxWidth: '100%',
-            maxHeight: '100%',
-            overflowX: 'hidden',
-          },
-        head: {
-          margin: 0,
-          padding: 0,
-          maxWidth: '100%',
-          maxHeight: '100%',
-          overflowX: 'hidden',
-        },
         '@global': {
           '@font-face': [Helvetica],
         }

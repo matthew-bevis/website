@@ -1,14 +1,15 @@
+'use client'
+
 import React from 'react';
-import Header from './_components/header';
-import Footer from './_components/footer';
-import { Metadata } from 'next';
+import { ThemeProvider, useTheme } from '@mui/material';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const theme = useTheme(); // Access theme object
   return (
     <html>
-      <Header />
+      <ThemeProvider theme={theme}>
         {children}
-      <Footer />
+      </ThemeProvider>
     </html>
   );
 }

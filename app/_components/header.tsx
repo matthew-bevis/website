@@ -8,12 +8,13 @@ import Link from 'next/link';
 import AccountMenu from './accountMenu';
 import { useTheme } from '@mui/material/styles'; // Import useTheme hook
 import './styling.css';
-import { Grid } from '@mui/material';
+import { Grid, ThemeProvider } from '@mui/material';
 
 const Header: React.FC = () => {
   const theme = useTheme(); // Access theme object
   
   return (
+    <ThemeProvider theme={theme}>
     <Grid item xs={12} xl={12} lg={12} md={12} sx={{ maxWidth: '100%', display: 'flex', 
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -26,14 +27,14 @@ const Header: React.FC = () => {
           <Image src='https://user.bulkitrade.com/assets/images/bulkitrade.png' alt="Bulkitrade Logo" width= '150' height= '50' style={{ marginRight: '50px', marginLeft: '10px'}} />
         </Link>
       </Grid>
-      <Grid sx={{ display: 'flex', alignItems: 'center', width: 'auto', height: 'auto', maxWidth: '100%' }}>
+      <Grid item sx={{ display: 'flex', alignItems: 'center', width: 'auto', height: 'auto', maxWidth: '100%' }}>
         <CustomizedInputBase/>
-        <Link href='/signin'>
+        <Link href='/marketplace/signin'>
           <Button variant="contained" color="primary" style={{ backgroundColor: theme.palette.primary.main, marginLeft: '20px', whiteSpace: 'nowrap'}}>
             Sign-In
           </Button>
         </Link>
-        <Link href="/register">
+        <Link href="/marketplace/register">
           <Button variant="contained" color="primary" style={{ backgroundColor: theme.palette.secondary.main, marginLeft: '10px', whiteSpace: 'nowrap'}}>
             Sign-Up
           </Button>
@@ -41,6 +42,7 @@ const Header: React.FC = () => {
         <AccountMenu />
       </Grid>
     </Grid>
+    </ThemeProvider>
   );
 };
 

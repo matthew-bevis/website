@@ -12,24 +12,20 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useTheme } from '@mui/material';
 
 
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
 
 
 export default function SignIn() {
+  const theme = useTheme(); // Access theme object
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -40,6 +36,12 @@ export default function SignIn() {
   };
 
   return (
+    <Box sx={{bgcolor: theme.palette.background.paper, // Use the theme's background color
+      color: theme.palette.text.primary, // Use the theme's text color for content
+      minHeight: '82.3vh', // Make sure it covers the full viewport height
+      py: 3, // Add some padding on the Y axis for spacing
+      display: 'flex',
+      flexDirection: 'column'}}>
       <Container maxWidth="xs">
         <Box
           sx={{
@@ -49,7 +51,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: theme.palette.secondary.main }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -102,7 +104,7 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      </Box>
   );
 }

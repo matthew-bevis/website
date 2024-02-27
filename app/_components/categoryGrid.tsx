@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Grid, Button, Container, useTheme } from '@mui/material';
 
@@ -16,8 +18,7 @@ const CategoryGrid = () => {
               fullWidth
               style={{
                 height: '100px',
-                fontFamily: 'Helvetica',
-                backgroundColor: theme.palette.secondary.dark, // Use theme color
+                backgroundColor: theme.palette.secondary.main, // Use theme color
                 color: theme.palette.common.white, // Set text color to contrast
               }}
             >

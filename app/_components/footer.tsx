@@ -1,9 +1,26 @@
+'use client'
+
 import React from 'react';
-import { Container, Grid, Typography, Divider } from '@mui/material';
+import { Box, Grid, Typography, Divider, useTheme, ThemeProvider } from '@mui/material';
 
 const Footer = () => {
+  const theme = useTheme(); // Access theme object
   return (
-    <Container className="footer" sx={{ textAlign: 'center' }}>
+    <ThemeProvider theme={theme}>
+    <Box sx={{ bottom: '0',
+      bgcolor: theme.palette.primary.main,
+      color: theme.palette.background.paper,
+      mt: '0px',
+      pt: '20px',
+      position: 'relative', // To handle potential horizontal scrolling issues
+      left: '0',
+      right: '0',
+      marginLeft: '0',
+      width: '100%',
+      marginRight: '0',
+      borderTop: '1px solid #ccc',
+      justifyContent: 'flex-end'}}>
+
       <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12} md={2} marginTop="10px">
           <Typography variant="body1" style={{ fontWeight: 'bolder' }}>
@@ -47,7 +64,8 @@ const Footer = () => {
       >
         © 2024 Bulkitrade, Inc. All Rights Reserved
       </Typography>
-    </Container>
+    </Box>
+    </ThemeProvider>
   );
 };
 
