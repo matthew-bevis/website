@@ -5,17 +5,30 @@ import Grid from '@mui/material/Grid';
 import CategoryGrid from 'app/_components/categoryGrid';
 import NewProducts from 'app/_components/newProducts';
 import FeaturedProducts from 'app/_components/featuredProducts';
-import { Box, CssBaseline, ThemeProvider, useTheme } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import { getTheme } from 'app/theme';
 import { useEffect, useState } from 'react';
-import RootLayout from 'app/layout';
+import Layout from './layout';
+import { ThemeMode } from 'app/interfaces';
 
 const Marketplace: React.FC = () => {
+  const [mode, setMode] = useState<ThemeMode>(ThemeMode.Light); // Use ThemeMode here
+
+    // Only attempt to access local storage in the client-side
+    useEffect(() => {
+      const savedMode = localStorage.getItem('themeMode') as ThemeMode || ThemeMode.Light;
+      setMode(savedMode);
+    }, []);
   
-  const theme = useTheme();
+    // Use useEffect for side-effects like setting localStorage
+    useEffect(() => {
+      localStorage.setItem('themeMode', mode);
+    }, [mode]);
+  
+    const theme = getTheme(mode);
   return (
     <ThemeProvider theme={theme}>
-      <RootLayout>
+      <Layout>
         <CssBaseline />
         <Box sx={{
           justifyContent: 'center',
@@ -59,7 +72,7 @@ const Marketplace: React.FC = () => {
           </Box>
         </Grid>
         </Box>
-      </RootLayout>
+      </Layout>
     </ThemeProvider>
   );
 };

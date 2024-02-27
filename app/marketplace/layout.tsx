@@ -5,6 +5,7 @@ import Footer from 'app/_components/footer';
 import Header from 'app/_components/header';
 import { SideLeft, SideRight } from 'app/_components/sideBars';
 import Slideshow from 'app/_components/slideshow';
+import { ThemeMode } from 'app/interfaces';
 import { getTheme } from 'app/theme';
 import React, { useEffect, useState } from 'react';
 
@@ -13,14 +14,24 @@ export default function Layout({
 }: {
   children: React.ReactNode
 }) {
-    
-    const theme = useTheme();
-    
+  const [mode, setMode] = useState<ThemeMode>(ThemeMode.Light); // Use ThemeMode here
+
+  // Only attempt to access local storage in the client-side
+  useEffect(() => {
+    const savedMode = localStorage.getItem('themeMode') as ThemeMode || ThemeMode.Light;
+    setMode(savedMode);
+  }, []);
+
+  // Use useEffect for side-effects like setting localStorage
+  useEffect(() => {
+    localStorage.setItem('themeMode', mode);
+  }, [mode]);
+
+  const theme = getTheme(mode);
     return (
     <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Header/>
             <Grid container>
       {/* Left column */}
       <SideLeft />
@@ -43,7 +54,6 @@ export default function Layout({
       {/* Right column */}
       <SideRight />
     </Grid>
-            <Footer/>
         </ThemeProvider>
     </> 
     )
