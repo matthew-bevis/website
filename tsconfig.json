@@ -38,7 +38,7 @@
     "app/pages/**/*.tsx", // Adjusted for clarity and correctness
     "app/_components/*.tsx",
     "app/theme.tsx"
-  ],
+, "app/_components/carousel.js"  ],
   "exclude": [
     "node_modules"
   ]

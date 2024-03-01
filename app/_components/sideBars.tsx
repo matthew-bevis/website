@@ -9,7 +9,7 @@ export const SideLeft = () => {
   return (
     <Grid
       item
-      xl={1}
+      xl={.5}
       pr={0}
       sx={{
         bgcolor: theme.palette.primary.main,
@@ -26,7 +26,7 @@ export const SideRight = () => {
   return (
     <Grid
       item
-      xl={1}
+      xl={.5}
       ml={0}
       sx={{
         bgcolor: theme.palette.primary.main,

@@ -1,109 +1,91 @@
 'use client'
 
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Carousel from 'react-material-ui-carousel';
-import Arrow from 'react-material-ui-carousel';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import { Box, IconButton } from '@mui/material';
+import React, { useState } from 'react';
+import Image from 'next/image'
 
-const images = [
-  {
-    imgPath: "https://bulkitrade-images.s3.amazonaws.com/images/banners/KIHILNTT-1656237167949.jpg",
-    label: "Pizza"
-  },
-  {
-    imgPath: "https://bulkitrade-images.s3.amazonaws.com/images/banners/VGVJWSGT-1656237152730.jpg",
-    label: "iheartbees"
-  },
-  {
-    imgPath: "https://bulkitrade-images.s3.amazonaws.com/images/banners/EBICJTMX-1656237138676.jpg",
-    label: "JUS"
-  },
-  {
-    imgPath: "https://bulkitrade-images.s3.amazonaws.com/images/banners/SERSRJJF-1656237117866.jpg",
-    label: "ArcticZeroScoop"
-  },
-  {
-    imgPath: "https://bulkitrade-images.s3.amazonaws.com/images/banners/FKBOASFN-1656328447681.jpg",
-    label: "ArcticZeroGF"
-  },
+const imageArray = [
+  "https://bulkitrade-images.s3.amazonaws.com/images/banners/KIHILNTT-1656237167949.jpg",
+  "https://bulkitrade-images.s3.amazonaws.com/images/banners/VGVJWSGT-1656237152730.jpg",
+  "https://bulkitrade-images.s3.amazonaws.com/images/banners/EBICJTMX-1656237138676.jpg",
+  "https://bulkitrade-images.s3.amazonaws.com/images/banners/SERSRJJF-1656237117866.jpg",
+  "https://bulkitrade-images.s3.amazonaws.com/images/banners/FKBOASFN-1656328447681.jpg",
 ];
 
-function Slideshow() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+const Slideshow = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const maxSteps = imageArray.length;
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    console.log('Next button clicked'); // This should log when next button is clicked
+    setActiveStep((prevActiveStep) => 
+      prevActiveStep === maxSteps - 1 ? 0 : prevActiveStep + 1
+    );
   };
-
+  
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    console.log('Back button clicked'); // This should log when back button is clicked
+    setActiveStep((prevActiveStep) => 
+      prevActiveStep === 0 ? maxSteps - 1 : prevActiveStep - 1
+    );
   };
-
-  const handleStepChange = (step: number) => {
-    setActiveStep(step);
-  };
+  
+  // Add this useEffect to log the activeStep whenever it changes
+  React.useEffect(() => {
+    console.log(`Current active step is: ${activeStep}`);
+  }, [activeStep]);
 
   return (
-    <div>
-      <Box
+    <Box sx={{ 
+      position: 'relative', 
+      maxWidth: '100%', 
+      height: 'auto', // Set the height to match your images
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      mb: 0, 
+      pb: 0,
+    }}>
+      <Box sx={{ position: 'relative', width: '100%', paddingTop: '25%'}}>
+  <Image
+    src={imageArray[activeStep]}
+    alt={`Slide ${activeStep}`}
+    layout="fill"
+    objectFit="cover"
+  />
+</Box>
+      <IconButton
+        onClick={handleBack}
         sx={{
-          display: 'block',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '0',
-          mx: 'auto',
-          marginBottom: '-20px'
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: 'translateY(-50%)',
+          bgcolor: 'background.paper',
+          '&:hover': {
+            bgcolor: 'background.default',
+          },
         }}
       >
-        <Carousel
-          //@ts-ignore
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={activeStep}
-          onChangeIndex={handleStepChange}
-          enableMouseEvents
-          width='100%'
-          indicators={false}
-        >
-          {images.map((step, index) => (
-            <div key={step.label}>
-              {Math.abs(activeStep - index) <= 4 ? (
-                <Box
-                  component="img"
-                  sx={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    opacity: '1',
-                    height: 250,
-                    display: 'block',
-                    maxWidth: '100%',
-                    overflow: 'hidden',
-                    margin: '0 auto'
-                  }}
-                    src={step.imgPath}
-                  />
-              ) : null}
-            </div>
-          ))}
-        </Carousel>
-        <Box sx={{ display: 'block', justifyContent: 'space-between'}}>
-          <Arrow
-            //@ts-ignore
-            direction="left"
-            onClick={handleBack}
-            sx={{ fontSize: '40px', color: 'white', cursor: 'pointer'}}
-          />
-          <Arrow
-            //@ts-ignore
-            direction="right"
-            onClick={handleNext}
-            sx={{ fontSize: '40px', color: 'white', cursor: 'pointer'}}
-          />
-        </Box>
-      </Box>
-    </div>
+        <KeyboardArrowLeft />
+      </IconButton>
+      <IconButton
+        onClick={handleNext}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: 0,
+          transform: 'translateY(-50%)',
+          bgcolor: 'background.paper',
+          '&:hover': {
+            bgcolor: 'background.default',
+          },
+        }}
+      >
+        <KeyboardArrowRight />
+      </IconButton>
+    </Box>
   );
-}
+};
 
 export default Slideshow;

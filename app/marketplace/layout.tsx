@@ -1,10 +1,7 @@
 'use client'
 
-import { CssBaseline, Grid, ThemeProvider, useTheme } from '@mui/material';
-import Footer from 'app/_components/footer';
-import Header from 'app/_components/header';
+import { CssBaseline, Grid, ThemeProvider} from '@mui/material';
 import { SideLeft, SideRight } from 'app/_components/sideBars';
-import Slideshow from 'app/_components/slideshow';
 import { ThemeMode } from 'app/interfaces';
 import { getTheme } from 'app/theme';
 import React, { useEffect, useState } from 'react';
@@ -41,7 +38,7 @@ export default function Layout({
         xs={12} // Takes full width on smaller screens
         md={12} // Adjust the size based on your layout needs
         lg={12} // Adjust the size based on your layout needs
-        xl={10} // Center content occupies the space between the side columns on XL screens
+        xl={11} // Center content occupies the space between the side columns on XL screens
         sx={{
           display: 'flex',
           justifyContent: 'center', // Center the children content horizontally

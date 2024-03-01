@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Avatar, Button, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, Container, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useTheme } from '@mui/material/styles';
+import Slideshow from 'app/_components/slideshow';
 
 
 const countries = ["Country 1", "Country 2", "Country 3"]; // Add all countries here
@@ -32,6 +33,7 @@ export default function SignUp() {
   };
 
   return (
+    
     <Box sx={{
       bgcolor: theme.palette.background.paper,
       color: theme.palette.text.primary,
@@ -47,6 +49,7 @@ export default function SignUp() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
+          
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>

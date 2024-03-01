@@ -28,6 +28,7 @@ module.exports = withFonts({
 
   // Next.js Image Optimization for external domains
   images: {
+    domains: ['bulkitrade-images.s3.amazonaws.com'],
     remotePatterns: [
       {
         protocol: 'https',
